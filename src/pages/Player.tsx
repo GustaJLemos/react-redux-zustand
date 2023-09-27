@@ -51,7 +51,7 @@ export function Player() {
           </div>
 
           <aside className="w-80 absolute top-0 bottom-0 right-0 border-l border-zinc-800 divide-y-2 divide-zinc-900 bg-zinc-900 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-800">
-            {course?.modules && course.modules.map((module, index) => {
+            {course?.modules && course?.modules.map((module, index) => {
               return (
                 <Module
                   key={module.id}
