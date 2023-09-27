@@ -6,7 +6,12 @@ import { useEffect } from 'react';
 import { useCurrentLesson, useStore } from '../zustand-store';
 
 export function Player() {
-  const { course, load } = useStore()
+  const { course, load } = useStore(state => {
+    return {
+      course: state.course,
+      load: state.load,
+    }
+  })
   // const dispatch = useAppDispatch()
 
   // o React só via atualizar, quando realmente o estado q estamos pegando aq atualizar

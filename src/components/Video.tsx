@@ -5,7 +5,12 @@ import { useCurrentLesson, useStore } from '../zustand-store';
 export function Video() {
   // const dispatch = useAppDispatch();
   // const isCourseLoading = useAppSelector(state => state.player.isLoading);
-  const { next, isLoading } = useStore();
+  const { next, isLoading } = useStore(state => {
+    return {
+      next: state.next,
+      isLoading: state.isLoading
+    }
+  });
   const { currentLesson } = useCurrentLesson();
 
   function handlePlayNext() {

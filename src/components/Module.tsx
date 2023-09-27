@@ -14,11 +14,17 @@ interface ModuleProps {
 
 // TODO da pra fazer aqueles skeletons
 export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
-  const { currentModuleIndex, currentLessonIndex, play } = useStore()
+  const { currentModuleIndex, currentLessonIndex, play, lessons } = useStore(state => {
+    return {
+      lessons: state.course?.modules[moduleIndex].lessons,
+      currentModuleIndex: state.currentModuleIndex,
+      currentLessonIndex: state.currentLessonIndex,
+      play: state.play,
+    }
+  })
 
   // const dispatch = useAppDispatch();
   // const lessons = useAppSelector(state => state.player.course?.modules[moduleIndex].lessons)
-  const lessons = useStore(state => state.course?.modules[moduleIndex].lessons)
 
   // const { currentModuleIndex, currentLessonIndex } = useAppSelector(state => {
   //   const { currentModuleIndex, currentLessonIndex } = state.player
